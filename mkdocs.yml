@@ -7,8 +7,8 @@ theme:
   logo: assets/enigma_logo.png
   favicon: assets/enigma_logo.png
   palette:
-    primary: lime
-    accent: deep orange
+    primary: purple
+    accent: pink
   features:
     - navigation.sections
     - navigation.top
