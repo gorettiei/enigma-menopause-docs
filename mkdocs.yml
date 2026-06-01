@@ -4,9 +4,11 @@ site_author: Goretti España-Irla & Claudia Barth
 
 theme:
   name: material
+  logo: assets/enigma_logo.png
+  favicon: assets/enigma_logo.png
   palette:
-    primary: teal
-    accent: cyan
+    primary: deep purple
+    accent: pink
   features:
     - navigation.sections
     - navigation.top
