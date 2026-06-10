@@ -1,35 +1,33 @@
 # Scripts
 
-This section provides an overview of the scripts you will need to run locally to extract and prepare your data for submission.
-
-All scripts will be shared upon confirmation of participation. Contact enigma-menopause@charite.de to receive the pipeline package.
+All scripts are provided by the analysis team upon confirmation of participation. Contact enigma-menopause@charite.de to receive the pipeline package.
 
 ---
 
-## Extraction Scripts
+## Required Scripts
 
-| Script | Language | Description |
-|--------|----------|-------------|
-| `extract_cortical_measures.sh` | Bash | Extracts cortical thickness, area, volume and LGI from FreeSurfer outputs |
-| `extract_ICV.sh` | Bash | Extracts intracranial volume (sbTIV) |
-| `generate_qc_images.sh` | Bash | Generates PNG snapshots for visual QC |
-| `detect_outliers.R` | R | Flags statistical outliers across cortical measures |
+The following scripts must be present in your `scripts/` folder:
+
+| Script | Description |
+|--------|-------------|
+| `extract_data.sh` | Extracts all surface measures and sbTIV into CSV files |
+| `run_quality_control.sh` | Runs outlier detection and generates QC images |
+| `create_samseg_images.sh` | Generates sbTIV segmentation images (called by QC script) |
+| `create_histograms.R` | Generates distribution histograms (called by QC script) |
+| `identify_outliers.R` | Flags statistical outliers (called by QC script) |
+| `inspect_subject.sh` | Opens FreeView for visual inspection of flagged subjects |
 
 ---
 
 ## Software Requirements
 
-### Bash scripts
-- FreeSurfer v7 or v8
-- ImageMagick
-
-### R scripts
-- R (v4.0 or higher)
-- Packages: `ggplot2`, `Routliers`
-
-```r
-install.packages(c("ggplot2", "Routliers"))
-```
+| Software | Required for |
+|----------|-------------|
+| FreeSurfer v7 or v8 | All processing steps |
+| FSL | QC script |
+| ImageMagick | QC image generation |
+| MATLAB + Image Processing Toolbox | LGI computation |
+| R (v4.0+) with `ggplot2` and `Routliers` | QC outlier detection |
 
 ---
 

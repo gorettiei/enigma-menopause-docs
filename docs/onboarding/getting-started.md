@@ -1,43 +1,48 @@
 # Getting Started
 
-Welcome to the ENIGMA Menopause Transition & Beyond study!
-
-This guide will help you get set up as a contributing site. Please read through carefully before starting any processing.
+Welcome to the ENIGMA Menopause Transition & Beyond study! This page will help you get set up as a contributing site.
 
 ---
 
 ## System Requirements
 
-Before you begin, make sure you have the following installed on your system:
+Before you begin, make sure you have the following installed:
 
-- **Linux** with bash Unix shell
-- **FreeSurfer v7 or v8** — [download here](https://surfer.nmr.mgh.harvard.edu/fswiki/rel7downloads)
-- **R** — [download here](https://cran.r-project.org/)
-- **MATLAB** with the Image Processing Toolbox (for LGI only)
-- **ImageMagick**
-- R packages: `ggplot2`, `Routliers`
+| Software | Required for |
+|----------|-------------|
+| Linux with bash | All steps |
+| FreeSurfer v7 or v8 | All processing steps |
+| FSL | QC script |
+| ImageMagick | QC image generation |
+| MATLAB + Image Processing Toolbox | LGI computation |
+| R (v4.0+) | QC outlier detection |
+
+R packages needed:
+
+```r
+install.packages("ggplot2")
+install.packages("https://cran.r-project.org/src/contrib/Archive/Routliers/Routliers_0.0.0.3.tar.gz",
+  repos=NULL, type="source")
+```
 
 ---
 
 ## What You Need to Contribute
 
-At minimum, each contributing site must provide:
+Regardless of your data sharing option, all sites must provide:
 
 - T1-weighted MRI data (or existing FreeSurfer outputs)
-- A completed `Covariates.csv` file with demographic and clinical variables
-- Age, biological sex, intracranial volume, and scanner/site information
-
-See the [Examples](../examples/covariates.md) section for a template.
+- A completed `Covariates.csv` — see [Examples](../examples/covariates.md)
 
 ---
 
-## Choose Your Data Sharing Option
+## Data Sharing Options
 
-| Option | What you contribute | Who does the processing |
-|--------|-------------------|------------------------|
-| **Option 1** | Existing FreeSurfer outputs (v7/v8) | You (already done) |
-| **Option 2** | FreeSurfer outputs using our scripts | You (using our pipeline) |
-| **Option 3** | Raw NIFTI scans | Us (centralised processing) |
+| Option | Description | Who processes |
+|--------|-------------|---------------|
+| **Option 1** | You already have FreeSurfer outputs (v7 or v8) | You (already done) |
+| **Option 2** | You process locally using our scripts | You (using our pipeline) |
+| **Option 3** | You send raw NIFTI scans | Us (centralised processing) |
 
 ---
 
@@ -54,4 +59,4 @@ See the [Examples](../examples/covariates.md) section for a template.
 
 - **Goretti España-Irla** — goretti.espana@charite.de
 - **Claudia Barth** — claudia.barth@charite.de
-- **General** — enigma-menopause@charite.de
+- **General enquiries** — enigma-menopause@charite.de
