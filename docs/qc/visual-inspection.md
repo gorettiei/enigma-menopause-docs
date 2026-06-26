@@ -15,44 +15,6 @@ Make sure the following are installed before running the QC scripts:
 To install the R packages:
 
 ```r
-cat > /home/maes11/enigma-menopause-docs/docs/qc/visual-inspection.md << 'EOF'
-# Quality Control
-
-In this step, distributions of each measure are assessed for normality and subjects are flagged as outliers based on their global and regional surface measures and sbTIV. Flagged subjects should be inspected visually to ensure acceptable data quality.
-
----
-
-## Dependencies
-
-Make sure the following are installed before running the QC scripts:
-
-- FSL
-- ImageMagick
-- R with packages `ggplot2` and `Routliers`
-
-To install the R packages:
-
-```r
-
-
-cat > /home/maes11/enigma-menopause-docs/docs/qc/visual-inspection.md << 'EOF'
-# Quality Control
-
-In this step, distributions of each measure are assessed for normality and subjects are flagged as outliers based on their global and regional surface measures and sbTIV. Flagged subjects should be inspected visually to ensure acceptable data quality.
-
----
-
-## Dependencies
-
-Make sure the following are installed before running the QC scripts:
-
-- FSL
-- ImageMagick
-- R with packages `ggplot2` and `Routliers`
-
-To install the R packages:
-
-```r
 install.packages("ggplot2")
 install.packages("https://cran.r-project.org/src/contrib/Archive/Routliers/Routliers_0.0.0.3.tar.gz",
   repos=NULL, type="source")
@@ -109,7 +71,7 @@ bash scripts/inspect_subject.sh <subjectID> <QC-type>
 Where `<QC-type>` is:
 
 - `internal` — checks voxel-wise segmentation (recommended for thickness and volume outliers)
-- `external` — checks surface-based parcellation (recommended for area and LGI outliers)
+- `external` — checks surface-based parcellation (recommended for area outliers)
 
 For an overview of error types, see `ENIGMA_Cortical_QC_2.0.pdf` in the `examples/` directory (pages 4 and 6 onwards).
 

@@ -14,7 +14,6 @@ Before you begin, make sure you have the following installed:
 | FreeSurfer v7 or v8 | All processing steps |
 | FSL | QC script |
 | ImageMagick | QC image generation |
-| MATLAB + Image Processing Toolbox | LGI computation |
 | R (v4.0+) | QC outlier detection |
 
 R packages needed:

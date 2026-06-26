@@ -11,7 +11,6 @@ The goal of preprocessing is to extract **surface-based morphometric measures** 
 - Cortical thickness
 - Cortical surface area
 - Cortical volume
-- Local Gyrification Index (LGI)
 - Intracranial Volume (sbTIV)
 
 All cortical measures are parcellated using the **Desikan-Killiany atlas**.
@@ -24,10 +23,9 @@ All cortical measures are parcellated using the **Desikan-Killiany atlas**.
 |------|-------------|
 | **Step 1** | Run FreeSurfer `recon-all` — full cortical reconstruction |
 | **Step 2** | Run SAMSEG — whole-brain segmentation and sbTIV extraction |
-| **Step 3** | Compute LGI — local gyrification index |
-| **Step 4** | Extract FreeSurfer output — generate CSV files for submission |
-| **Step 5** | Quality control — outlier detection and visual inspection |
-| **Step 6** | Data transfer — compress and send output files |
+| **Step 3** | Extract FreeSurfer output — generate CSV files for submission |
+| **Step 4** | Quality control — outlier detection and visual inspection |
+| **Step 5** | Data transfer — compress and send output files |
 
 See [Preprocessing Steps](steps.md) for detailed instructions.
 
@@ -45,6 +43,4 @@ After completing the pipeline, the following files will be generated in your `ou
 | `rh.area.aparc.csv` | Right hemisphere surface area |
 | `lh.volume.aparc.csv` | Left hemisphere cortical volume |
 | `rh.volume.aparc.csv` | Right hemisphere cortical volume |
-| `lh.lgi.aparc.csv` | Left hemisphere LGI |
-| `rh.lgi.aparc.csv` | Right hemisphere LGI |
 | `sbTIV.csv` | Intracranial volume |

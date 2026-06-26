@@ -26,7 +26,6 @@ The following scripts must be present in your `scripts/` folder:
 | FreeSurfer v7 or v8 | All processing steps |
 | FSL | QC script |
 | ImageMagick | QC image generation |
-| MATLAB + Image Processing Toolbox | LGI computation |
 | R (v4.0+) with `ggplot2` and `Routliers` | QC outlier detection |
 
 ---
