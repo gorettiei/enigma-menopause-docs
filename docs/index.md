@@ -2,7 +2,7 @@
 
 **Neuroendocrinology Working Group — Analysis & Processing Guide**
 
-*Version 1 — May 2026*
+*Version 1 — July 2026*
 
 ---
 
