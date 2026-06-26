@@ -1,6 +1,8 @@
 # Scripts
 
-All scripts are provided by the analysis team upon confirmation of participation. Contact enigma-menopause@charite.de to receive the pipeline package.
+All scripts required for the ENIGMA Menopause preprocessing and QC pipeline are publicly available and can be downloaded from our GitHub repository:
+
+**[Download Scripts](https://github.com/gorettiei/enigma-menopause-scripts)**
 
 ---
 
