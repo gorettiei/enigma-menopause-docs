@@ -1,8 +1,6 @@
 # ENIGMA Menopause Transition & Beyond
 
-**Neuroendocrinology Working Group — Analysis & Processing Guide**
-
-*Version 1 — July 2026*
+## Neuroendocrinology Working Group — Analysis & Processing Guide
 
 ---
 
