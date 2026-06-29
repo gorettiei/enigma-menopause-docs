@@ -50,8 +50,6 @@ recon-all -s <subjectID> -i <path_to_T1.nii.gz> -all -sd $SUBJECTS_DIR
 !!! note
     - Use FreeSurfer v7 or v8. Do not mix versions within the same dataset.
     - This takes ~10 hours per subject. Submit as a batch job on a cluster to avoid session timeouts.
-    - If using a 3T scanner, add the `-3T` flag.
-    - You may also specify more than one T1- or T2-weighted input image acquired during the same session — see the [FreeSurfer Beginner's Guide](https://surfer.nmr.mgh.harvard.edu/fswiki/FreeSurferBeginnersGuide) for examples.
 
 **1.4** To run multiple subjects in parallel, create a text file where each line contains a `recon-all` call for one subject, then submit it using your cluster's job scheduler.
 
