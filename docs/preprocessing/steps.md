@@ -63,6 +63,8 @@ cat $SUBJECTS_DIR/<subjectID>/scripts/recon-all-status.log
 
 The last line should read `recon-all finished without error`.
 
+For more information see the [FreeSurfer Beginner's Guide](https://surfer.nmr.mgh.harvard.edu/fswiki/FreeSurferBeginnersGuide).
+
 ---
 
 ## Step 2 — SAMSEG
