@@ -56,7 +56,10 @@ For each measure and hemisphere, inspect the histograms in `output/images/global
 
 Inspect each image in `output/images/sbTIV/`. The left column shows the complete SAMSEG parcellation and the right column shows only the cortex segmentation. Check that the cortex has been adequately captured and that there are no major segmentation errors.
 
-Examples of acceptable segmentations and major errors can be found in `SAMSEG_QC_examples.pdf` in the `examples/` directory.
+!!! tip
+    Examples of acceptable segmentations and major errors can be found in the reference guide below:
+
+    **[SAMSEG_QC_examples.pdf](../assets/SAMSEG_QC_examples.pdf)**
 
 ---
 
@@ -73,7 +76,10 @@ Where `<QC-type>` is:
 - `internal` — checks voxel-wise segmentation (recommended for thickness and volume outliers)
 - `external` — checks surface-based parcellation (recommended for area outliers)
 
-For an overview of error types, see `ENIGMA_Cortical_QC_2.0.pdf` in the `examples/` directory (pages 4 and 6 onwards).
+!!! tip
+    For an overview of error types, see the reference guide below (pages 4 and 6 onwards):
+
+    **[ENIGMA_Cortical_QC_2.0.pdf](../assets/ENIGMA_Cortical_QC_2.0.pdf)**
 
 ---
 
