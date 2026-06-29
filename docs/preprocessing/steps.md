@@ -41,32 +41,17 @@ source $FREESURFER_HOME/SetUpFreeSurfer.sh
 export SUBJECTS_DIR=/path/to/your/freesurfer/output
 ```
 
-**1.3** Run `recon-all` for each subject. Below are examples for common scenarios:
+**1.3** Run `recon-all` for each subject:
 
-One T1-weighted image on a 1.5T scanner:
 ```bash
 recon-all -s <subjectID> -i <path_to_T1.nii.gz> -all -sd $SUBJECTS_DIR
-```
-
-One T1-weighted image on a 3T scanner:
-```bash
-recon-all -s <subjectID> -i <path_to_T1.nii.gz> -all -3T -sd $SUBJECTS_DIR
-```
-
-Two T1-weighted images from the same session on a 3T scanner:
-```bash
-recon-all -s <subjectID> -i <path_to_T1_scan1.nii.gz> -i <path_to_T1_scan2.nii.gz> -all -3T -sd $SUBJECTS_DIR
-```
-
-One T1- and one T2-weighted image on a 3T scanner:
-```bash
-recon-all -s <subjectID> -i <path_to_T1.nii.gz> -T2 <path_to_T2.nii.gz> -T2pial -all -3T -sd $SUBJECTS_DIR
 ```
 
 !!! note
     - Use FreeSurfer v7 or v8. Do not mix versions within the same dataset.
     - This takes ~10 hours per subject. Submit as a batch job on a cluster to avoid session timeouts.
-    - If using a 3T scanner, always add the `-3T` flag.
+    - If using a 3T scanner, add the `-3T` flag.
+    - You may also specify more than one T1- or T2-weighted input image acquired during the same session — see the [FreeSurfer Beginner's Guide](https://surfer.nmr.mgh.harvard.edu/fswiki/FreeSurferBeginnersGuide) for examples.
 
 **1.4** To run multiple subjects in parallel, create a text file where each line contains a `recon-all` call for one subject, then submit it using your cluster's job scheduler.
 
@@ -77,8 +62,6 @@ cat $SUBJECTS_DIR/<subjectID>/scripts/recon-all-status.log
 ```
 
 The last line should read `recon-all finished without error`.
-
-For more information see the [FreeSurfer Beginner's Guide](https://surfer.nmr.mgh.harvard.edu/fswiki/FreeSurferBeginnersGuide).
 
 ---
 
