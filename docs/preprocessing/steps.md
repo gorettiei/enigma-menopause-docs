@@ -49,9 +49,41 @@ recon-all -s <subjectID> -i <path_to_T1.nii.gz> -all -sd $SUBJECTS_DIR
 
 !!! note
     - Use FreeSurfer v7 or v8. Do not mix versions within the same dataset.
-    - This takes ~10 hours per subject. Submit as a batch job on a cluster to avoid session timeouts.
+    - This takes ~10 hours per subject.
 
-**1.4** To run multiple subjects in parallel, create a text file where each line contains a `recon-all` call for one subject, then submit it using your cluster's job scheduler.
+**1.4** Given the long runtime, we recommend processing subjects in parallel rather than sequentially. There are two options:
+
+**Sequential** (one subject at a time — simplest but slowest):
+
+```bash
+recon-all -s sub-001 -i /path/to/nifti/sub-001_T1w.nii.gz -all -sd $SUBJECTS_DIR
+recon-all -s sub-002 -i /path/to/nifti/sub-002_T1w.nii.gz -all -sd $SUBJECTS_DIR
+recon-all -s sub-003 -i /path/to/nifti/sub-003_T1w.nii.gz -all -sd $SUBJECTS_DIR
+```
+
+**Parallel** (all subjects simultaneously — recommended for large datasets):
+
+Submit a separate job for each subject using your cluster's job scheduler. Below is an example using SLURM job arrays, where `docs/Subjects.txt` contains one subject ID per line:
+
+```bash
+#!/bin/bash
+#SBATCH --job-name=recon-all
+#SBATCH --array=1-N        # replace N with your number of subjects
+#SBATCH --time=12:00:00
+#SBATCH --mem=8G
+#SBATCH --cpus-per-task=4
+
+module load freesurfer
+
+export SUBJECTS_DIR=/path/to/your/freesurfer/output
+
+subjectID=$(sed -n "${SLURM_ARRAY_TASK_ID}p" docs/Subjects.txt)
+
+recon-all -s $subjectID -i /path/to/nifti/${subjectID}_T1w.nii.gz -all -sd $SUBJECTS_DIR
+```
+
+!!! note
+    The above example uses SLURM. If your cluster uses a different job scheduler (e.g. SGE, PBS), the syntax will differ. Contact your local HPC support team for guidance.
 
 **1.5** After `recon-all` completes, verify it ran correctly for each subject:
 
