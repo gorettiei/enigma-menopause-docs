@@ -96,6 +96,9 @@ For additional variables, use self-explanatory column names and include units wh
 
 ---
 
+
+---
+
 ## Notes
 
 !!! warning
