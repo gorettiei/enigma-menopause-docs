@@ -109,3 +109,5 @@ For additional variables, use self-explanatory column names and include units wh
 
     - [Covariates_template.csv](../assets/Covariates_template.csv) — blank template with column headers only
     - [Covariates_example.csv](../assets/Covariates_example.csv) — filled example with 15 fictional participants
+
+    All files are also available in our **[GitHub repository](https://github.com/gorettiei/enigma-menopause-docs/tree/main/docs/assets)**.
