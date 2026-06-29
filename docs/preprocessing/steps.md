@@ -48,12 +48,13 @@ recon-all -s <subjectID> -i <path_to_T1.nii.gz> -all -sd $SUBJECTS_DIR
 ```
 
 !!! note
-    - Use FreeSurfer v7 or v8. Do not mix versions within the same dataset.
-    - This takes ~10 hours per subject.
+    Use FreeSurfer v7 or v8. Do not mix versions within the same dataset.
 
-**1.4** Given the long runtime, we recommend processing subjects in parallel rather than sequentially. There are two options:
+**1.4** `recon-all` takes approximately **10 hours per subject**. If you have multiple subjects, we strongly recommend running them in parallel rather than one at a time. Choose one of the two options below:
 
-**Sequential** (one subject at a time — simplest but slowest):
+---
+
+**Option A — Sequential** (simplest, but slow — subjects run one after another):
 
 ```bash
 recon-all -s sub-001 -i /path/to/nifti/sub-001_T1w.nii.gz -all -sd $SUBJECTS_DIR
@@ -61,15 +62,19 @@ recon-all -s sub-002 -i /path/to/nifti/sub-002_T1w.nii.gz -all -sd $SUBJECTS_DIR
 recon-all -s sub-003 -i /path/to/nifti/sub-003_T1w.nii.gz -all -sd $SUBJECTS_DIR
 ```
 
-**Parallel** (all subjects simultaneously — recommended for large datasets):
+This is only practical for very small datasets (1–3 subjects).
 
-Submit a separate job for each subject using your cluster's job scheduler. Below is an example using SLURM job arrays, where `docs/Subjects.txt` contains one subject ID per line:
+---
+
+**Option B — Parallel** (recommended — all subjects run simultaneously on the cluster):
+
+Create a file called `docs/Subjects.txt` with one subject ID per line, then submit a job array using your cluster's scheduler. Below is an example using SLURM:
 
 ```bash
 #!/bin/bash
 #SBATCH --job-name=recon-all
-#SBATCH --array=1-N        # replace N with your number of subjects
-#SBATCH --time=12:00:00
+#SBATCH --array=1-N        # replace N with your total number of subjects
+#SBATCH --time=12:00:00    # 12 hours per subject
 #SBATCH --mem=8G
 #SBATCH --cpus-per-task=4
 
@@ -82,8 +87,16 @@ subjectID=$(sed -n "${SLURM_ARRAY_TASK_ID}p" docs/Subjects.txt)
 recon-all -s $subjectID -i /path/to/nifti/${subjectID}_T1w.nii.gz -all -sd $SUBJECTS_DIR
 ```
 
+Save this as `run_recon_all.sh` and submit with:
+
+```bash
+sbatch run_recon_all.sh
+```
+
 !!! note
-    The above example uses SLURM. If your cluster uses a different job scheduler (e.g. SGE, PBS), the syntax will differ. Contact your local HPC support team for guidance.
+    The above example uses SLURM. If your cluster uses a different job scheduler (e.g. SGE, PBS), the syntax will differ. Contact your local HPC support team for guidance on submitting parallel jobs on your system.
+
+---
 
 **1.5** After `recon-all` completes, verify it ran correctly for each subject:
 
@@ -151,11 +164,24 @@ See [Quality Control](../qc/visual-inspection.md) for full instructions.
 
 ## Step 5 — Data Transfer
 
-Compress your output files and contact us to arrange data transfer:
+After completing Steps 1 through 4, you should have the following files ready:
+
+- `output/<hemi>.<measure>.aparc.csv` — surface measures (thickness, area, volume)
+- `output/sbTIV.csv` — SAMSEG-derived intracranial volume
+- `output/images/` — diagnostic plots and sbTIV images
+- `docs/Outliers.csv` — list of flagged subjects with QC codes filled in
+
+Compress the `docs/` and `output/` directories:
 
 ```bash
 tar -czf <site_name>_ENIGMA_menopause_output.tar.gz docs/ output/
 ```
 
+Replace `<site_name>` with your site or institution name (e.g. `Oslo`, `Amsterdam`).
+
+Then contact us for secure data transfer instructions:
+
 - **Goretti España-Irla** — goretti.espana@charite.de
 - **Claudia Barth** — claudia.barth@charite.de
+
+Do not hesitate to contact us if you experience any problems or have questions regarding any steps in this procedure. Thank you for your participation!
