@@ -16,6 +16,8 @@ export SUBJECTS_DIR=/path/to/your/freesurfer/output
 
 ## Step 1 — recon-all
 
+This step reconstructs cortical and subcortical surfaces from each participant's T1-weighted scan using FreeSurfer's `recon-all` pipeline. The output includes cortical thickness, surface area, and volume measures parcellated according to the Desikan-Killiany atlas — the core structural measures used throughout the rest of the analysis.
+
 **1.1** Check your FreeSurfer version:
 
 ```bash
@@ -112,14 +114,14 @@ For more information see the [FreeSurfer Beginner's Guide](https://surfer.nmr.mg
 
 ## Step 2 — SAMSEG
 
-Run SAMSEG for each subject to obtain whole-brain segmentation and intracranial volume (sbTIV):
+This step runs SAMSEG (Sequential Adaptive Multimodal SEGmentation), a FreeSurfer tool that performs whole-brain segmentation directly from the T1-weighted image. It is used here specifically to obtain the SAMSEG-derived estimate of intracranial volume (sbTIV), which is used as a covariate in the mega-analysis to account for individual differences in head size.
 
 ```bash
 run_samseg --input <path_to_T1.nii.gz> --output $SUBJECTS_DIR/<subjectID>/samseg/
 ```
 
 !!! note "Why SAMSEG?"
-    SAMSEG performs whole-brain segmentation directly from the T1w image and is robust to multi-site acquisition variability, making it well-suited for the ENIGMA multi-site framework.
+    SAMSEG is robust to multi-site acquisition variability, making it well-suited for the ENIGMA multi-site framework, where scans come from different scanners and protocols.
 
 !!! warning
     The output must be saved to `$SUBJECTS_DIR/<subjectID>/samseg/` exactly — this path is required by the extraction script in Step 3.
@@ -128,9 +130,14 @@ run_samseg --input <path_to_T1.nii.gz> --output $SUBJECTS_DIR/<subjectID>/samseg
 
 ## Step 3 — Extract FreeSurfer Output
 
-This step extracts all surface measures (thickness, area, volume) and sbTIV into CSV files for submission.
+This step compiles all preprocessed neuroimaging measures into CSV files ready for the mega-analysis. Specifically, it extracts regional cortical surface measures (area, thickness, and volume) parcellated according to the Desikan-Killiany atlas, as well as the SAMSEG-derived intracranial volume estimate (sbTIV). The output files from this step are what will be shared with the ENIGMA consortium.
 
-**3.1** Navigate to the ENIGMA scripts directory:
+To run the `extract_data.sh` script, your working directory should be the base directory of the ENIGMA Menopause Transition & Beyond Mega-Analysis study scripts package. This step assumes that you have a list in your `docs` folder called `Subjects.txt` containing all your subject IDs, one ID per line — these must match exactly the folder names inside `$SUBJECTS_DIR`.
+
+!!! note
+    This step requires the ENIGMA processing scripts. If you haven't downloaded them yet, see the [Scripts](../scripts/index.md) page.
+
+**3.1** Check that the active FreeSurfer version is v7 or v8 and that `SUBJECTS_DIR` is set correctly:
 
 ```bash
 cd /path/to/ENIGMA_menopause
@@ -146,23 +153,30 @@ echo "<subjectID>" >> docs/Subjects.txt
 !!! warning
     Subject IDs must match exactly the folder names inside `$SUBJECTS_DIR`.
 
-**3.3** Run the extraction script:
+**3.3** Run the extraction and QC script:
 
 ```bash
 bash scripts/extract_data.sh
 ```
 
-Confirm that `SUBJECTS_DIR` and the SAMSEG directory are correct when prompted. Output files will be written to the `output/` directory.
+The script will double-check your environment variables and perform some basic checks on the data. It generates the `output/` directory where the surface measures will be written to files named `<hemi>.<measure>.aparc.csv`.
+
+!!! note
+    The `--skip` flag is used internally for the `aparcstats2table` command, so subjects with missing data will be skipped automatically. The script will throw an error if abnormally many subjects (>90%) have missing data.
 
 ---
 
 ## Step 4 — Quality Control
+
+This step checks the quality of your processed data before submission. It flags statistical outliers across all measures and provides diagnostic images so you can visually verify that segmentation and parcellation were performed correctly for each subject.
 
 See [Quality Control](../qc/visual-inspection.md) for full instructions.
 
 ---
 
 ## Step 5 — Data Transfer
+
+This final step packages all your output files for secure submission to the ENIGMA consortium.
 
 After completing Steps 1 through 4, you should have the following files ready:
 
