@@ -81,6 +81,14 @@ For each subject listed in `docs/Outliers.csv`, inspect the data visually in Fre
 bash scripts/inspect_subject.sh <subjectID> <QC-type>
 ```
 
+Below are example outputs:
+
+!!! example "Internal QC view"
+    ![Internal QC view](../assets/qc_internal_view.png)
+
+!!! example "External QC view"
+    ![External QC view](../assets/qc_external_view.png)
+
 Where `<QC-type>` is:
 
 - `internal` — checks voxel-wise segmentation (recommended for thickness and volume outliers)
