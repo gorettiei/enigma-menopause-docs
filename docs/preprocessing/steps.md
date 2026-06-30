@@ -188,7 +188,7 @@ After completing Steps 1 through 4, you should have the following files ready:
 - `output/images/` — diagnostic plots and sbTIV images
 - `docs/Outliers.csv` — list of flagged subjects with QC codes filled in
 - `Covariates.csv` — demographic and clinical variables for all participants (see [Examples](../examples/covariates.md))
-- `Covariates.csv` — demographic and clinical variables for all participants (see [Examples](../examples/covariates.md))
+- Screenshots of the `internal` and `external` FreeView QC views for each flagged subject (see [Quality Control](../qc/visual-inspection.md))
 
 Compress the `docs/` and `output/` directories:
 
@@ -196,7 +196,7 @@ Compress the `docs/` and `output/` directories:
 tar -czf <site_name>_ENIGMA_menopause_output.tar.gz docs/ output/
 ```
 
-Replace `<site_name>` with your site or institution name (e.g. `Oslo`, `Amsterdam`).
+Replace `<site_name>` with your site or institution name (e.g. `Oslo`, `Amsterdam`). Attach your QC screenshots and `Covariates.csv` separately, as these are not part of the `docs/` or `output/` folders.
 
 Then contact us for secure data transfer instructions:
 
