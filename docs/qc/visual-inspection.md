@@ -89,6 +89,14 @@ Below are example outputs:
 !!! example "External QC view"
     ![External QC view](../assets/qc_external_view.png)
 
+Below are example outputs:
+
+!!! example "Internal QC view"
+    ![Internal QC view](../assets/qc_internal_view.png)
+
+!!! example "External QC view"
+    ![External QC view](../assets/qc_external_view.png)
+
 Where `<QC-type>` is:
 
 - `internal` — checks voxel-wise segmentation (recommended for thickness and volume outliers)
