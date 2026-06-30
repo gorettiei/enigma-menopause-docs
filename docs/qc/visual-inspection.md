@@ -89,6 +89,9 @@ Where `<QC-type>` is:
 
     **[ENIGMA_Cortical_QC_2.0.pdf](../assets/ENIGMA_Cortical_QC_2.0.pdf)**
 
+!!! note "Please share your QC screenshots with us"
+    For each flagged subject, please take a screenshot of both the `internal` and `external` FreeView windows and send them to us along with your final submission. This allows the analysis team to independently verify your QC decisions and helps us maintain consistent quality standards across all contributing sites.
+
 ---
 
 ## Step 5 — Record QC Decisions
