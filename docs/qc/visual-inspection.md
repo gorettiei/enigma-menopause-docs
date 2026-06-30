@@ -95,7 +95,7 @@ Below are example outputs:
     ![External QC view](../assets/qc_external_view.png)
 
 !!! tip
-    For an overview of error types, see the reference guide below (pages 4 and 6 onwards):
+    This guide includes annotated examples of common segmentation and parcellation errors to help you identify what to look for:
 
     **[ENIGMA_Cortical_QC_2.0.pdf](../assets/ENIGMA_Cortical_QC_2.0.pdf)**
 
