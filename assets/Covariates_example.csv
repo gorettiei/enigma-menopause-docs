@@ -1,0 +1,16 @@
+SubjID;Age;Sex;Site;FreeSurfer_version;MenoStatus;HadMenopause;AgeMenopause;MenstrualStatus;TimeSinceFinalPeriod_years;Height_cm;Weight_kg;BMI;Handedness;Education_years;Ethnicity;Gender;HRT_ever;HRT_current;HC_ever;MRS_total;Greene_total;MENQOL_total
+sub-001;45;0;Oslo;8.1.0;pre;0;NA;regular;NA;165;62;228;right;16;European;woman;0;0;1;2;3;NA
+sub-002;52;0;Oslo;8.1.0;peri_early;0;NA;irregular;NA;160;70;273;right;14;European;woman;0;0;0;12;15;NA
+sub-003;58;0;Oslo;8.1.0;post_early;1;54;absent;04. Feb;158;65;261;left;18;East Asian;woman;1;0;1;8;10;42.3
+sub-004;47;0;Amsterdam;8.1.0;pre;0;NA;regular;NA;170;66;228;right;12;European;woman;0;0;1;NA;NA;NA
+sub-005;55;0;Amsterdam;8.1.0;post_late;1;51;absent;4.0;163;78;294;right;16;African;woman;0;0;0;5;7;38.1
+sub-006;50;0;Berlin;7.4.1;peri_late;0;NA;irregular;NA;155;75;312;ambidextrous;15;European;non-binary;1;1;1;18;22;NA
+sub-007;42;1;Berlin;7.4.1;NA;NA;NA;NA;NA;178;75;236;right;17;European;man;NA;NA;NA;NA;NA;NA
+sub-008;60;0;Berlin;7.4.1;post_late;1;57;absent;02. Mai;162;65;248;right;14;Latin American;woman;0;0;0;4;6;35.7
+sub-009;48;0;Oslo;8.1.0;peri_early;0;NA;irregular;NA;168;72;255;right;15;European;woman;0;0;1;10;12;NA
+sub-010;53;0;Amsterdam;8.1.0;post_early;1;52;absent;01. Feb;155;58;241;right;18;South Asian;woman;1;1;0;15;18;50.2
+sub-011;44;0;Berlin;7.4.1;pre;0;NA;regular;NA;172;68;230;left;16;European;other;0;0;0;NA;NA;NA
+sub-012;57;0;Oslo;8.1.0;post_late;1;55;absent;2.0;160;70;273;right;12;Middle Eastern;prefer not to say;0;0;1;6;8;40.5
+sub-013;46;0;Amsterdam;8.1.0;pre;0;NA;regular;NA;167;64;229;right;17;European;woman;0;0;0;NA;NA;NA
+sub-014;51;0;Berlin;7.4.1;peri_late;0;NA;irregular;NA;163;75;282;right;14;African;woman;1;0;1;20;25;NA
+sub-015;59;0;Oslo;8.1.0;post_early;1;56;absent;03. Jan;157;62;251;right;16;European;woman;0;0;0;7;9;41.0
