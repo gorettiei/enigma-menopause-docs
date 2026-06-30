@@ -20,6 +20,8 @@ install.packages("https://cran.r-project.org/src/contrib/Archive/Routliers/Routl
   repos=NULL, type="source")
 ```
 
+This page references five scripts. You only need to call two of them directly — `run_quality_control.sh` automatically runs `create_samseg_images.sh`, `create_histograms.R`, and `identify_outliers.R` internally. `inspect_subject.sh` is called separately and manually for each flagged subject in Step 4.
+
 The following scripts must all be present in your `scripts/` folder:
 
 - `run_quality_control.sh`
