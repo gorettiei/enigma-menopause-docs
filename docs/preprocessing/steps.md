@@ -187,6 +187,8 @@ After completing Steps 1 through 4, you should have the following files ready:
 - `output/sbTIV.csv` — SAMSEG-derived intracranial volume
 - `output/images/` — diagnostic plots and sbTIV images
 - `docs/Outliers.csv` — list of flagged subjects with QC codes filled in
+- `Covariates.csv` — demographic and clinical variables for all participants (see [Examples](../examples/covariates.md))
+- `Covariates.csv` — demographic and clinical variables for all participants (see [Examples](../examples/covariates.md))
 
 Compress the `docs/` and `output/` directories:
 
