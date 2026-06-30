@@ -164,6 +164,9 @@ The script will double-check your environment variables and perform some basic c
 !!! note
     The `--skip` flag is used internally for the `aparcstats2table` command, so subjects with missing data will be skipped automatically. The script will throw an error if abnormally many subjects (>90%) have missing data.
 
+!!! note
+    The script will ask about LGI even though this study does not require it. When prompted, answer `y` to continue, then `n` when asked if you still wish to include LGI.
+
 ---
 
 ## Step 4 — Quality Control
