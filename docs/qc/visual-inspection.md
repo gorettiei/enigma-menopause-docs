@@ -1,6 +1,6 @@
 # Quality Control
 
-In this step, distributions of each measure are assessed for normality and subjects are flagged as outliers based on their global and regional surface measures and sbTIV. Flagged subjects should be inspected visually to ensure acceptable data quality.
+In this step, distributions of each measure are assessed for normality and subjects are flagged as outliers based on their global and regional surface measures and sbTIV. Flagged subjects should be inspected visually to ensure acceptable data quality before submission to the consortium.
 
 ---
 
@@ -32,6 +32,8 @@ The following scripts must all be present in your `scripts/` folder:
 
 ## Step 1 — Run QC Script
 
+This step runs statistical outlier detection across all subjects and automatically generates diagnostic images for visual inspection. It compares each subject's surface measures and sbTIV against the distribution of the whole dataset to flag values that fall outside the expected range.
+
 From the ENIGMA scripts directory, run:
 
 ```bash
@@ -48,11 +50,15 @@ This generates:
 
 ## Step 2 — Inspect Histograms
 
+This step checks that each measure follows a roughly normal distribution across your dataset, which is an important assumption for the statistical analyses in the mega-analysis. Deviations from normality, especially in small datasets, are common and not necessarily a sign of a problem — but worth checking.
+
 For each measure and hemisphere, inspect the histograms in `output/images/global_histograms/` and `output/images/regional_histograms/` and check that distributions are approximately normal. Since some datasets may be small, use your discretion. Note that flagged outliers may appear in the histograms — these will be inspected in detail in Step 4.
 
 ---
 
 ## Step 3 — Inspect sbTIV Images
+
+This step provides a visual check of the SAMSEG segmentation used to compute intracranial volume (sbTIV). Reviewing these images helps catch any major segmentation errors before the data is used in the analysis.
 
 Inspect each image in `output/images/sbTIV/`. The left column shows the complete SAMSEG parcellation and the right column shows only the cortex segmentation. Check that the cortex has been adequately captured and that there are no major segmentation errors.
 
@@ -64,6 +70,8 @@ Inspect each image in `output/images/sbTIV/`. The left column shows the complete
 ---
 
 ## Step 4 — Inspect Flagged Subjects
+
+This step takes a closer look at any subject flagged as a statistical outlier in Step 1, to determine whether the flag reflects a genuine processing error or simply natural biological variation. This is the most important quality control step, as it directly determines whether a subject's data is reliable enough to include in the analysis.
 
 For each subject listed in `docs/Outliers.csv`, inspect the data visually in FreeView:
 
@@ -84,6 +92,8 @@ Where `<QC-type>` is:
 ---
 
 ## Step 5 — Record QC Decisions
+
+This final step documents your quality control decisions so the analysis team knows exactly which subjects to include or exclude, and why.
 
 After visual inspection, fill in the `QC_code` column in `docs/Outliers.csv` for each flagged subject:
 
